@@ -10,7 +10,12 @@ import UIKit
 class ConferenceVideoSessionsViewController: UIViewController {
 
     let videosController = ConferenceVideoController()
-    var collectionView: UICollectionView! = nil
+    var collectionView: UICollectionView! = nil {
+       didSet {
+           collectionView.contentInsetAdjustmentBehavior = .never
+       }
+   }
+
     var dataSource: UICollectionViewDiffableDataSource
         <ConferenceVideoController.VideoCollection, ConferenceVideoController.Video>! = nil
     var currentSnapshot: NSDiffableDataSourceSnapshot
